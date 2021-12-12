@@ -1,0 +1,6 @@
+name: ${name}
+version: ${version}
+main: ${groupId}.${artifactId}.${name}
+description: ${description}
+api-version: 1.18
+author: ${author}

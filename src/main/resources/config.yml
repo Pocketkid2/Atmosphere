@@ -1,0 +1,16 @@
+# --------------------------------
+#   CONFIGURAITON FOR ATMOSPHERE
+# --------------------------------
+
+#
+# These values define gravity and atmospheric density. 
+# 1.0 is normal. 0.5 is half density and half gravity. 
+# 0.1 is tenth density and tenth gravity, and so on.
+#
+worlds:
+  world: 1.0
+  world_nether: 1.0
+  world_the_end: 1.0
+  
+  # Moon is 1/6th gravity, or 1.66666...
+  moon: 0.1667 
