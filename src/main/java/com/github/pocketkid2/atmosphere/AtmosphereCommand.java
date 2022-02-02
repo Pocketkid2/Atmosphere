@@ -1,6 +1,11 @@
 package com.github.pocketkid2.atmosphere;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -27,18 +32,21 @@ public class AtmosphereCommand implements CommandExecutor {
 			return false;
 		}
 
-		if (args.length > 1) {
-			player.sendMessage(ChatColor.RED + "Too many arguments!");
-			return false;
-		}
-
 		if (args[0].equalsIgnoreCase("test")) {
 			plugin.toggleTest(player);
 			player.sendMessage(ChatColor.AQUA + "Atmosphere testing has been turned " + (plugin.isTesting(player) ? ChatColor.GREEN + "on" : ChatColor.RED + "off"));
 			return true;
 		}
-		player.sendMessage(ChatColor.RED + "Unknown argument " + ChatColor.GRAY + args[0]);
-		return false;
+		if (args[0].equalsIgnoreCase("list")) {
+			List<Material> list = new ArrayList<Material>(Arrays.asList(Material.values()));
+			for (Material m : list) {
+				player.sendMessage(ChatColor.AQUA + m.toString());
+			}
+			return true;
+		} else {
+			player.sendMessage(ChatColor.RED + "Unknown argument " + ChatColor.GRAY + args[0]);
+			return false;
+		}
 	}
 
 }
