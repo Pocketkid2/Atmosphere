@@ -4,3 +4,13 @@ main: ${groupId}.${artifactId}.${name}Plugin
 description: ${description}
 api-version: 1.18
 author: ${author}
+commands:
+    atmosphere:
+        description: The base command, right now only used for testing
+        usage: /<command> test
+        permission: atmosphere.command
+        permission-message: You don't have permission for that!
+permissions:
+    atmosphere.command:
+        description: Permission to use the main command
+        default: op
