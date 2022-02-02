@@ -3,6 +3,7 @@ package com.github.pocketkid2.atmosphere;
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -15,6 +16,7 @@ public class AtmosphereListener implements Listener {
 		plugin = p;
 	}
 
+	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		if (event.getAction() == Action.RIGHT_CLICK_BLOCK && plugin.isTesting(event.getPlayer())) {
 			Player player = event.getPlayer();
