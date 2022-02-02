@@ -1,12 +1,11 @@
 package com.github.pocketkid2.atmosphere;
 
+import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-
-import net.md_5.bungee.api.ChatColor;
 
 public class AtmosphereListener implements Listener {
 
