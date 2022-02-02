@@ -12,5 +12,5 @@ worlds:
   world_nether: 1.0
   world_the_end: 1.0
   
-  # Moon is 1/6th gravity, or 1.66666...
-  moon: 0.1667 
+  # Moon is roughly 1/6th gravity
+  moon: 0.165
