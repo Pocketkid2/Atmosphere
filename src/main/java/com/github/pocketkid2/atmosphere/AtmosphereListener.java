@@ -24,7 +24,7 @@ public class AtmosphereListener implements Listener {
 
 			player.sendMessage(ChatColor.AQUA + "You clicked a " + ChatColor.BLUE + block.getType().toString());
 
-			player.sendMessage(ChatColor.AQUA + "This block is " + (Atmosphere.isAirTight(block) ? ChatColor.GREEN + "airtight" : ChatColor.RED + "not airtight"));
+			player.sendMessage(ChatColor.AQUA + "This block is " + (AtmosphereUtils.isAirTight(block) ? ChatColor.GREEN + "airtight" : ChatColor.RED + "not airtight"));
 
 			player.sendMessage(ChatColor.AQUA + "This block is " + (block.getType().isSolid() ? ChatColor.GREEN + "solid" : ChatColor.RED + "not solid") + ChatColor.AQUA + " and "
 					+ (block.getType().isOccluding() ? ChatColor.GREEN + "occluding" : ChatColor.RED + "not occluding"));
