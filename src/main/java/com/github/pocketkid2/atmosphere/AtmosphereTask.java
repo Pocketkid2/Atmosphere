@@ -17,13 +17,13 @@ public class AtmosphereTask extends BukkitRunnable {
 		plugin = p;
 	}
 
+	@Override
 	public void run() {
 		for (Player p : plugin.getServer().getOnlinePlayers()) {
-			if (p.getGameMode() == GameMode.SURVIVAL && plugin.getValues().get(p.getWorld()) != null && plugin.getValues().get(p.getWorld()) < 0.5
-					&& isExposedToOpenAir(p)) {
-				double damage = 1.0 / plugin.getValues().get(p.getWorld());
-				plugin.getLogger().info("Player " + p.getName() + " is exposed to open air in world " + p.getWorld().getName()
-						+ " with atmospheric density " + plugin.getValues().get(p.getWorld()) + " and will take " + damage + " damage");
+			if (p.getGameMode() == GameMode.SURVIVAL && plugin.getValues().get(p.getWorld()) != null && plugin.getValues().get(p.getWorld()) < 0.5 && isExposedToOpenAir(p)) {
+				double damage = plugin.getValues().get(p.getWorld());
+				plugin.getLogger().info("Player " + p.getName() + " is exposed to open air in world " + p.getWorld().getName() + " with atmospheric density " + plugin.getValues().get(p.getWorld())
+						+ " and will take " + damage + " damage");
 				p.damage(damage);
 				p.sendMessage("You are exposed to the atmosphere!");
 			}
@@ -48,23 +48,17 @@ public class AtmosphereTask extends BukkitRunnable {
 		if (target.getBlockX() == current.getBlockX() && target.getBlockY() == current.getBlockY() && target.getBlockZ() == current.getBlockZ())
 			return true;
 
-		if ((current.add(0, 1, 0).getBlock().isEmpty() || current.add(1, 0, 0).getBlock().isPassable())
-				&& isConnectedTo(target, current.add(1, 0, 0), checked))
+		if ((current.add(0, 1, 0).getBlock().isEmpty() || current.add(1, 0, 0).getBlock().isPassable()) && isConnectedTo(target, current.add(1, 0, 0), checked))
 			return true;
-		if ((current.add(1, 0, 0).getBlock().isEmpty() || current.add(1, 0, 0).getBlock().isPassable())
-				&& isConnectedTo(target, current.add(1, 0, 0), checked))
+		if ((current.add(1, 0, 0).getBlock().isEmpty() || current.add(1, 0, 0).getBlock().isPassable()) && isConnectedTo(target, current.add(1, 0, 0), checked))
 			return true;
-		if ((current.add(-1, 0, 0).getBlock().isEmpty() || current.add(1, 0, 0).getBlock().isPassable())
-				&& isConnectedTo(target, current.add(1, 0, 0), checked))
+		if ((current.add(-1, 0, 0).getBlock().isEmpty() || current.add(1, 0, 0).getBlock().isPassable()) && isConnectedTo(target, current.add(1, 0, 0), checked))
 			return true;
-		if ((current.add(0, 0, 1).getBlock().isEmpty() || current.add(1, 0, 0).getBlock().isPassable())
-				&& isConnectedTo(target, current.add(1, 0, 0), checked))
+		if ((current.add(0, 0, 1).getBlock().isEmpty() || current.add(1, 0, 0).getBlock().isPassable()) && isConnectedTo(target, current.add(1, 0, 0), checked))
 			return true;
-		if ((current.add(0, 0, -1).getBlock().isEmpty() || current.add(1, 0, 0).getBlock().isPassable())
-				&& isConnectedTo(target, current.add(1, 0, 0), checked))
+		if ((current.add(0, 0, -1).getBlock().isEmpty() || current.add(1, 0, 0).getBlock().isPassable()) && isConnectedTo(target, current.add(1, 0, 0), checked))
 			return true;
-		if ((current.add(0, -1, 0).getBlock().isEmpty() || current.add(1, 0, 0).getBlock().isPassable())
-				&& isConnectedTo(target, current.add(1, 0, 0), checked))
+		if ((current.add(0, -1, 0).getBlock().isEmpty() || current.add(1, 0, 0).getBlock().isPassable()) && isConnectedTo(target, current.add(1, 0, 0), checked))
 			return true;
 
 		return false;
